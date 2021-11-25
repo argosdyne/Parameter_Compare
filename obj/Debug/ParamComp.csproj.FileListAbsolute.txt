@@ -1,0 +1,17 @@
+D:\GitHubArgos\Parameter_Compare\bin\Debug\ParamComp.exe.config
+D:\GitHubArgos\Parameter_Compare\bin\Debug\ParamComp.exe
+D:\GitHubArgos\Parameter_Compare\bin\Debug\ParamComp.pdb
+D:\GitHubArgos\Parameter_Compare\obj\Debug\ParamComp.csprojAssemblyReference.cache
+D:\GitHubArgos\Parameter_Compare\obj\Debug\MainWindow.g.cs
+D:\GitHubArgos\Parameter_Compare\obj\Debug\App.g.cs
+D:\GitHubArgos\Parameter_Compare\obj\Debug\ParamComp_MarkupCompile.cache
+D:\GitHubArgos\Parameter_Compare\obj\Debug\ParamComp_MarkupCompile.lref
+D:\GitHubArgos\Parameter_Compare\obj\Debug\MainWindow.baml
+D:\GitHubArgos\Parameter_Compare\obj\Debug\ParamComp.g.resources
+D:\GitHubArgos\Parameter_Compare\obj\Debug\ParamComp.Properties.Resources.resources
+D:\GitHubArgos\Parameter_Compare\obj\Debug\ParamComp.csproj.GenerateResource.cache
+D:\GitHubArgos\Parameter_Compare\obj\Debug\ParamComp.csproj.CoreCompileInputs.cache
+D:\GitHubArgos\Parameter_Compare\obj\Debug\ParamComp.exe
+D:\GitHubArgos\Parameter_Compare\obj\Debug\ParamComp.pdb
+D:\GitHubArgos\Parameter_Compare\obj\Debug\AdminWindow.g.cs
+D:\GitHubArgos\Parameter_Compare\obj\Debug\AdminWindow.baml

@@ -26,6 +26,8 @@ namespace ParamComp
     {
         public string Text { get; private set; }
 
+        private string DroneName;
+        private string FCVersion;
         public MainWindow()
         {
             InitializeComponent();
@@ -207,14 +209,10 @@ namespace ParamComp
                 }
                 else
                 {
-                    datagridview.Columns.Add("refName", "이름");
-                    datagridview.Columns.Add("refValue", "값");
-                    datagridview.Columns.Add("tgtName", "이름");
-                    datagridview.Columns.Add("tgtValue", "값");
-                    datagridview.Columns[0].Width = 142;
-                    datagridview.Columns[1].Width = 95;
-                    datagridview.Columns[2].Width = 142;
-                    datagridview.Columns[3].Width = 95;
+                    datagridview.Columns.Add("refName", "파라미터 이름");
+                    datagridview.Columns.Add("refValue", "Reference  param");
+                    datagridview.Columns.Add("tgtValue", "Target  param");
+
 
                     foreach (var item in refParams.Keys)
                     {
@@ -251,7 +249,7 @@ namespace ParamComp
                         // ref 파일과 tgt 파일 ignore파일을 넣었을 때 출력
                         // resultString += string.Format("{0},{1},{2},{3}\r\n", item, refParamList[item], item, tgtParamList.TryGetValue(item, out val) == true ? val : "NA");
 
-                        datagridview.Rows.Add(item, refParamList[item], item, tgtParamList.TryGetValue(item, out val) == true ? val : "NA");
+                        datagridview.Rows.Add(item, refParamList[item], tgtParamList.TryGetValue(item, out val) == true ? val : "NA");
                     }
                 }
                 // refparam 넣고 tgtparam 넣고 checkparam 없고 ignoreparam 없을때 출력
@@ -260,7 +258,7 @@ namespace ParamComp
                     //ref 파일과 tgt 파일만 넣었을때 실행
                     // resultString += string.Format("{0},{1},{2},{3}\r\n", item, refParamList[item], item, tgtParamList.TryGetValue(item, out val) == true ? val : "NA");
 
-                    datagridview.Rows.Add(item, refParamList[item], item, tgtParamList.TryGetValue(item, out val) == true ? val : "NA");
+                    datagridview.Rows.Add(item, refParamList[item], tgtParamList.TryGetValue(item, out val) == true ? val : "NA");
                 }
             }
             if (checkParamList != null | ignoreParamList != null && refParamList != null && tgtParamList == null
@@ -278,7 +276,7 @@ namespace ParamComp
                     {   // 기존에 값들을 한번씩 다 비교한 뒤에 ref, tgt,check 만 넣으면 ref, tgt를 비교하고 그 밑에 check된 값이 나온다.
                         // resultString += string.Format("{0},{1},{2}\r\n", item, item, tgtParamList.TryGetValue(item, out val) == true ? val : "NA");
 
-                        datagridview.Rows.Add(item, refParamList.TryGetValue(item, out val) == true ? val : "NA", item, tgtParamList.TryGetValue(item, out val) == true ? val : "NA");
+                        datagridview.Rows.Add(item, refParamList.TryGetValue(item, out val) == true ? val : "NA", tgtParamList.TryGetValue(item, out val) == true ? val : "NA");
 
                     }
                 }
@@ -298,6 +296,8 @@ namespace ParamComp
             ignorelabel.Content = "";
             datagridview.Rows.Clear();
             datagridview.Columns.Clear();
+            input_name.Text = "";
+            input_FC.Text = "";
 
             if (difParamList != null)
             {
@@ -337,6 +337,15 @@ namespace ParamComp
         }
         #endregion
 
+        private void Btn_nameClick(object sender, RoutedEventArgs e)
+        {
+            DroneName = input_name.Text;
+        }
+        private void Btn_FCClick(object sender, RoutedEventArgs e)
+        {
+            FCVersion = input_FC.Text;
+        }
+
         #region CSV 파일로 변환
         private void Change_CSV_Click(object sender, RoutedEventArgs e)
         {
@@ -362,11 +371,15 @@ namespace ParamComp
                     {
                         strHeader += datagridview.Columns[i].HeaderText + ",";
                     }
+                    sw.WriteLine("{0},{1},{2}", "", "기체모델명", DroneName);
+                    sw.WriteLine("{0},{1},{2}", "","FC Version", FCVersion);
+                    sw.WriteLine("{0},{1},{2}", "","","");
                     sw.WriteLine(strHeader);
-
+                           
                     for (int m = 0; m < datagridview.Rows.Count - 1; m++)
                     {
                         string strRowValue = "";
+                        
                         for (int n = 0; n < datagridview.Columns.Count; n++)
                         {
                             strRowValue += datagridview.Rows[m].Cells[n].Value + ",";
@@ -379,7 +392,12 @@ namespace ParamComp
             }
 
         }
-
+        private void Btn_AdminClick(object sender, RoutedEventArgs e)
+        {
+            AdminWindow adminWindow = new AdminWindow();
+            adminWindow.Show();
+        }
+        
         #endregion
         private void datagridview_ColumnWidthChanged(object sender, DataGridViewColumnEventArgs e)
         {

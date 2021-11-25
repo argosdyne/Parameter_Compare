@@ -1,0 +1,29 @@
+﻿<Window x:Class="ParamComp.AdminWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ParamComp"
+             mc:Ignorable="d" 
+             Height="550" Width="700">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ComboBox HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Height="25"/>
+        <Button x:Name="check" Content="check" HorizontalAlignment="Left" Margin="140,10,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
+        <Button x:Name="ignores" Content="ignores" HorizontalAlignment="Left" Margin="225,10,0,0" VerticalAlignment="Top" Width="75" Height="25"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="454" Margin="11,48,0,0" VerticalAlignment="Top" Width="300">
+            <TreeView/>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="454" Margin="35,48,0,0" VerticalAlignment="Top" Width="300" Grid.Column="1">
+            <TreeView/>
+        </Border>
+        <Button Content="🢂" HorizontalAlignment="Left" Margin="326,197,0,0" VerticalAlignment="Top" Width="40" Height="40" FontSize="20px" BorderThickness="0" Grid.ColumnSpan="2"/>
+        <Button Content="🡸" HorizontalAlignment="Left" Margin="326,262,0,0" VerticalAlignment="Top" Width="40" Height="40" FontSize="20px" BorderThickness ="0" Grid.ColumnSpan="2"/>
+        <Button Content="⭯" HorizontalAlignment="Left" Margin="326,329,0,0" VerticalAlignment="Top" Width="40" Height="40" FontSize="20px" BorderThickness ="0" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</Window>

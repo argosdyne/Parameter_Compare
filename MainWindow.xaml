@@ -7,30 +7,26 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 xmlns:local="clr-namespace:ParamComp"
 mc:Ignorable="d"
-Title="CodeCompare" Height="863.089" Width="587.995">
-    <Grid Margin="-1,0,3,0">
-        <Button Content=". . ." HorizontalAlignment="Right" Margin="0,17,17,0" VerticalAlignment="Top" Width="70" Click="RefParambtn_Click" Height="30"/>
-        <Button Content=". . ." HorizontalAlignment="Right" Margin="0,60,17,0" VerticalAlignment="Top" Width="70" Click="TargetParambtn_Click" Height="30"/>
-        <Button Content=". . ." HorizontalAlignment="Right" Margin="0,106,17,0" VerticalAlignment="Top" Width="70" Click="ChecksParambtn_Click" RenderTransformOrigin="0.5,0.5" Height="30">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="0.437"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button Content=". . ." HorizontalAlignment="Right" Margin="0,151,17,0" VerticalAlignment="Top" Width="70" Click="IgnoresParambtn_Click" Height="30"/>
-        <Button Content="비교하기" HorizontalAlignment="Left" Margin="20,200,0,0" VerticalAlignment="Top" Width="140" Click="Comparebtn_Click" Height="35"/>
-        <Label x:Name="reflabel" Content="" Margin="78,18,100,0" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Black"/>
-        <Label x:Name="ignorelabel" Content="" Margin="79,152,100,0" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Black"/>
-        <Label x:Name="checkslabel" Content="" Margin="78,107,100,0" VerticalAlignment="Top"  BorderThickness="1" BorderBrush="Black"/>
-        <Label x:Name="targetlabel" Content="" Margin="78,62,100,0" VerticalAlignment="Top"  BorderThickness="1" BorderBrush="Black"/>
-        <Button Content="text clear" HorizontalAlignment="Left" Margin="340,200,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click" Height="35"/>
-        <Button Content="CSV 파일" HorizontalAlignment="Left" Margin="180,200,0,0" VerticalAlignment="Top" Width="140" Click="Change_CSV_Click" Height="35"/>
+Title="CodeCompare" Height="872" Width="793">
+    <Grid Margin="-1,0,3,19">
 
-        <wfi:WindowsFormsHost Margin="20,260,18,17">
+        <Button Content=". . ." HorizontalAlignment="Right" Margin="0,17,23,0" VerticalAlignment="Top" Width="119" Click="RefParambtn_Click" Height="30" Grid.Column="2"/>
+        <Button Content=". . ." HorizontalAlignment="Right" Margin="0,60,23,0" VerticalAlignment="Top" Width="119" Click="TargetParambtn_Click" Height="30" Grid.Column="2"/>
+        <Button Content=". . ." HorizontalAlignment="Right" Margin="0,105,93,0" VerticalAlignment="Top" Width="70" Click="ChecksParambtn_Click" RenderTransformOrigin="0.5,0.5" Height="30" Grid.Column="2"/>
+        <Button Content="관리자" HorizontalAlignment="Right" Margin="0,152,9,0" VerticalAlignment="Top" Width="70" Height="30" Grid.Column="2" Click="Btn_AdminClick"/>
+        
+        <Label x:Name="reflabel" Content="" Margin="78,18,163,0" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Black" Grid.ColumnSpan="3"/>
+        <Label x:Name="ignorelabel" Content="" Margin="79,152,173,0" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Black" Grid.ColumnSpan="3"/>
+        <Label x:Name="checkslabel" Content="" Margin="78,107,173,0" VerticalAlignment="Top"  BorderThickness="1" BorderBrush="Black" Grid.ColumnSpan="3"/>
+        <Label x:Name="targetlabel" Content="" Margin="78,62,163,0" VerticalAlignment="Top"  BorderThickness="1" BorderBrush="Black" Grid.ColumnSpan="3"/>
+        <StackPanel Orientation="Horizontal">
+            <Button  Content="비교하기" HorizontalAlignment="Left" Margin="10,283,0,0" VerticalAlignment="Top" Width="140" Click="Comparebtn_Click" Height="40"/>
+            <Button Content="text clear" HorizontalAlignment="Left" Margin="10,283,0,0" VerticalAlignment="Top" Width="140" Click="Button_Click" Height="40" RenderTransformOrigin="1.286,0.425"/>
+            <Button Content="CSV 파일" HorizontalAlignment="Left" Margin="10,283,0,0" VerticalAlignment="Top" Width="140" Click="Change_CSV_Click" Height="40" Grid.ColumnSpan="3"/>
+        </StackPanel>
+
+
+        <wfi:WindowsFormsHost Margin="40,330,38,-8" Grid.ColumnSpan="3">
             <wf:DataGridView x:Name="datagridview" AutoSizeColumnsMode="Fill">
 
             </wf:DataGridView>
@@ -39,5 +35,18 @@ Title="CodeCompare" Height="863.089" Width="587.995">
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="targetparam" VerticalAlignment="Top" Margin="7,68,0,0"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="check" VerticalAlignment="Top" Margin="24,113,0,0"/>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="ignores" VerticalAlignment="Top" Margin="23,159,0,0"/>
+
+        <Button x:Name="btn_Admin" Content="관리자" HorizontalAlignment="Right" Margin="0,105,9,0" VerticalAlignment="Top" Width="70" Click="Btn_AdminClick" RenderTransformOrigin="0.5,0.5" Height="30" Grid.Column="2"/>
+
+
+        <Button Content=". . ." HorizontalAlignment="Right" Margin="0,152,93,0" VerticalAlignment="Top" Width="70" Click="IgnoresParambtn_Click" RenderTransformOrigin="0.5,0.5" Height="30" Grid.Column="2"/>
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="12,206,0,0" TextWrapping="Wrap" Text="기체모델명" VerticalAlignment="Top" Width="60"/>
+        <TextBox x:Name="input_name" HorizontalAlignment="Left" Height="30" Margin="80,199,0,0" FontSize="15px" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="540" Grid.ColumnSpan="3"/>
+        <Button x:Name="btn_name" Click="Btn_nameClick" Content="입력" HorizontalAlignment="Right" Margin="0,199,9,0" VerticalAlignment="Top" Width="134" Height="30" Grid.Column="2"/>
+        <TextBlock  HorizontalAlignment="Left" Margin="10,250,0,0" TextWrapping="Wrap" Text="FC Version" VerticalAlignment="Top" Width="60"/>
+        <TextBox x:Name="input_FC" HorizontalAlignment="Left" Height="30" Margin="80,245,0,0" FontSize="15px" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="540" Grid.ColumnSpan="3"/>
+        <Button x:Name="btn_FC" Content="입력" HorizontalAlignment="Right" Margin="0,245,8,0" VerticalAlignment="Top" Width="135" Click="Btn_FCClick" Height="30" Grid.Column="2"/>
     </Grid>
 </Window>
