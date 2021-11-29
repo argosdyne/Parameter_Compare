@@ -196,7 +196,7 @@ namespace ParamComp
         }
         #endregion
 
-        #region 비교하기 버튼6
+        #region 비교하기 버튼
         private void Comparebtn_Click(object sender, RoutedEventArgs e)
         {
             List<string> CompareParameters(Dictionary<string, string> refParams, Dictionary<string, string> tgtParams)
